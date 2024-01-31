@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Link</title>
+    <style>
+        body {
+    background-color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+.title {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: black;
+    background-image: url(./assets/title_background.jpg);
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 30vh; 
+}
+.title ul {
+    list-style-type: none;
+    padding: 0%;
+    margin: 0%;
+}
+.title .profile-picture img {
+    padding-top: 10px;
+}
+.title .titles ul {
+    padding-bottom: 10px;
+}
+
+
+.link-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f6f8fa;
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    padding: 16px;
+    margin: 10px auto;
+    text-decoration: none;
+    color: #24292e;
+    width: 80%; 
+    max-width: 600px; 
+}
+.link-card:hover {
+    background-color: #e1e4e8;
+}
+.link-card .profile-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.title .profile-picture {
+    padding: 10px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+    </style>
+</head>
+<body>
+    <div class="title">
+        <img src="./assets/profile_picture.jpg" alt="A cat looking at your from his computer." class="profile-picture">
+        <section class="name">
+            <h1>Brentan R. Rath</h1>
+            <p><i>Do Not Go Gentle Into That Good Night</i></p>
+        </section>
+        <section class="titles">
+            <ul>
+                <li>Not a Furry</li>
+                <li>Web Developer</li>
+                <li>CS2 Gambling Addict</li>
+            </ul>
+        </section>
+    </div>
+    <div class="information">
+        <section class="cards">
+            <a href="link-here" class="link-card">
+                <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="Profile Icon" class="profile-icon">
+                <div class="content">
+                    <h3>Github</h3>
+                    <p>Where you can view my projects!</p>
+                </div>
+                <span class="cta">Go to link</span>
+            </a>
+            <a href="link-here" class="link-card">
+                <img src="https://static-00.iconduck.com/assets.00/discord-icon-2048x2048-o5mluhz2.png" alt="Profile Icon" class="profile-icon">
+                <div class="content">
+                    <h3>Discord</h3>
+                    <p>Get in contact with me!</p>
+                </div>
+                <span class="cta">Go to link</span>
+            </a>
+            <a href="link-here" class="link-card">
+                <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="Profile Icon" class="profile-icon">
+                <div class="content">
+                    <h3>LinkedIn</h3>
+                    <p>View my professional self!</p>
+                </div>
+                <span class="cta">Go to link</span>
+            </a>
+        </section>
+    </div>
+</body>
+</html>
