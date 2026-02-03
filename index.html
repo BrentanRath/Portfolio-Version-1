@@ -5,66 +5,200 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bio-Link</title>
     <style>
-        body {
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     background-color: black;
     font-family: 'Times New Roman', Times, serif;
-}
-.title {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    color: black;
     background-image: url(./assets/title_background.jpg);
     background-position: center; 
     background-repeat: no-repeat; 
-    background-size: cover; 
-    height: 30vh; 
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 20px;
 }
+
+.title {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    max-width: 800px;
+}
+
+.title h1 {
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.title p {
+    margin: 5px 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    font-family: 'Times New Roman', Times, serif;
+}
+
 .title ul {
     list-style-type: none;
-    padding: 0%;
-    margin: 0%;
-}
-.title .profile-picture img {
-    padding-top: 10px;
-}
-.title .titles ul {
-    padding-bottom: 10px;
+    padding: 0;
+    margin: 10px 0;
 }
 
-
-.link-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #f6f8fa;
-    border: 1px solid #d1d5da;
-    border-radius: 6px;
-    padding: 16px;
-    margin: 10px auto;
-    text-decoration: none;
-    color: #24292e;
-    width: 80%; 
-    max-width: 600px; 
+.title ul li {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    font-family: 'Times New Roman', Times, serif;
 }
-.link-card:hover {
-    background-color: #e1e4e8;
-}
-.link-card .profile-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
 
 .title .profile-picture {
-    padding: 10px;
     width: 75px;
     height: 75px;
     border-radius: 50%;
     object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Simplified Stats Section */
+.stats-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #666;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.stats-container h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #888;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-label {
+    color: #ccc;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.stat-value {
+    color: #fff;
+    font-size: 1.8em;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.skill-bars {
+    margin-top: 10px;
+}
+
+.skill-item {
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    color: #fff;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.skill-bar {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #666;
+    border-radius: 5px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: #888;
+    transition: width 1s ease;
+}
+
+/* Smaller Link Cards */
+.link-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(246, 248, 250, 0.95);
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 8px auto;
+    text-decoration: none;
+    color: #24292e;
+    width: 70%; 
+    max-width: 450px;
+    transition: all 0.3s ease;
+}
+
+.link-card:hover {
+    background-color: rgba(225, 228, 232, 0.95);
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.link-card .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.link-card .content {
+    flex: 1;
+    margin: 0 15px;
+}
+
+.link-card h3 {
+    margin: 0 0 3px 0;
+    font-size: 1.1em;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.link-card p {
+    margin: 0;
+    font-size: 0.85em;
+    color: #586069;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.link-card .cta {
+    font-size: 0.85em;
+    color: #0366d6;
+    white-space: nowrap;
+    font-family: 'Times New Roman', Times, serif;
 }
     </style>
 </head>
@@ -83,6 +217,69 @@
             </ul>
         </section>
     </div>
+    
+    <!-- Gaming Style Coding Stats -->
+    <div class="stats-container">
+        <h2>⚔️ Coding Stats ⚔️</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-label">Projects</div>
+                <div class="stat-value">42</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Commits</div>
+                <div class="stat-value">1,337</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Coffee Cups</div>
+                <div class="stat-value">∞</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Bugs Fixed</div>
+                <div class="stat-value">999+</div>
+            </div>
+        </div>
+        
+        <div class="skill-bars">
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>JavaScript</span>
+                    <span>85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>Python</span>
+                    <span>78%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 78%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>HTML/CSS</span>
+                    <span>92%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 92%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-name">
+                    <span>Git</span>
+                    <span>80%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="information">
         <section class="cards">
             <a href="link-here" class="link-card">

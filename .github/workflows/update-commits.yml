@@ -1,0 +1,24 @@
+name: Update Commit Count
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight
+  workflow_dispatch: # Allows you to run it manually
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Fetch Commits
+        env:
+          GH_TOKEN: ${{ secrets.COMMIT_TOKEN }} # We will set this next
+        run: |
+          COUNT=$(curl -H "Authorization: bearer $GH_TOKEN" -X POST -d '{"query":"{user(login:\"YOUR_USERNAME\"){contributionsCollection{contributionCalendar{totalContributions}}}}"}' https://api.github.com/graphql | jq '.data.user.contributionsCollection.contributionCalendar.totalContributions')
+          echo "{\"totalCommits\": $COUNT}" > data.json
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "action@github.com"
+          git add data.json
+          git commit -m "Update commit count" || exit 0
+          git push
