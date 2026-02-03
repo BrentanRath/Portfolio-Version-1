@@ -13,7 +13,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.COMMIT_TOKEN }} # We will set this next
         run: |
-          COUNT=$(curl -H "Authorization: bearer $GH_TOKEN" -X POST -d '{"query":"{user(login:\"YOUR_USERNAME\"){contributionsCollection{contributionCalendar{totalContributions}}}}"}' https://api.github.com/graphql | jq '.data.user.contributionsCollection.contributionCalendar.totalContributions')
+          COUNT=$(curl -H "Authorization: bearer $GH_TOKEN" -X POST -d '{"query":"{user(login:\"BrentanRath\"){contributionsCollection{contributionCalendar{totalContributions}}}}"}' https://api.github.com/graphql | jq '.data.user.contributionsCollection.contributionCalendar.totalContributions')
           echo "{\"totalCommits\": $COUNT}" > data.json
       - name: Commit and Push
         run: |
