@@ -232,10 +232,6 @@ body {
                 <div class="stat-label">Homemade Iced Matcha Lattes</div>
                 <div class="stat-value">∞</div>
             </div>
-            <div class="stat-box">
-                <div class="stat-label">Things Started</div>
-                <div class="stat-value" id="started-count">0</div>
-            </div>
         </div>
         
         <div class="skill-bars">
@@ -315,9 +311,6 @@ body {
                 const data = await response.json();
                 document.getElementById('commit-count').innerText = data.totalCommits.toLocaleString();
                 document.getElementById('repo-count').innerText = data.publicRepos.toLocaleString();
-                if (data.thingsStarted !== undefined) {
-                    document.getElementById('started-count').innerText = data.thingsStarted.toLocaleString();
-                }
             } catch (error) {
                 console.error('Error fetching stats:', error);
                 // Keep the default values if fetch fails
