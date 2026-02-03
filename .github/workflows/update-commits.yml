@@ -11,12 +11,13 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
-      - name: Fetch Commits
+      - name: Fetch Commits and Repos
         env:
           GH_TOKEN: ${{ secrets.COMMIT_TOKEN }}
         run: |
           COUNT=$(curl -H "Authorization: bearer $GH_TOKEN" -X POST -d '{"query":"{user(login:\"BrentanRath\"){contributionsCollection{contributionCalendar{totalContributions}}}}"}' https://api.github.com/graphql | jq '.data.user.contributionsCollection.contributionCalendar.totalContributions')
-          echo "{\"totalCommits\": $COUNT}" > data.json
+          REPOS=$(curl -H "Authorization: bearer $GH_TOKEN" -X POST -d '{"query":"{user(login:\"BrentanRath\"){repositories(privacy:PUBLIC){totalCount}}}"}' https://api.github.com/graphql | jq '.data.user.repositories.totalCount')
+          echo "{\"totalCommits\": $COUNT, \"publicRepos\": $REPOS}" > data.json
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
