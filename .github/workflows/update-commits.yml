@@ -17,7 +17,8 @@ jobs:
         run: |
           COUNT=$(curl -H "Authorization: bearer $GH_TOKEN" -X POST -d '{"query":"{user(login:\"BrentanRath\"){contributionsCollection{contributionCalendar{totalContributions}}}}"}' https://api.github.com/graphql | jq '.data.user.contributionsCollection.contributionCalendar.totalContributions')
           REPOS=$(curl -H "Authorization: bearer $GH_TOKEN" -X POST -d '{"query":"{user(login:\"BrentanRath\"){repositories(privacy:PUBLIC){totalCount}}}"}' https://api.github.com/graphql | jq '.data.user.repositories.totalCount')
-          echo "{\"totalCommits\": $COUNT, \"publicRepos\": $REPOS}" > data.json
+          STARTED=$(curl -H "Authorization: bearer $GH_TOKEN" -X POST -d '{"query":"{user(login:\"BrentanRath\"){repositories(first:100,privacy:PUBLIC){nodes{stargazerCount}}}}"}' https://api.github.com/graphql | jq '[.data.user.repositories.nodes[].stargazerCount] | add // 0')
+          echo "{\"totalCommits\": $COUNT, \"publicRepos\": $REPOS, \"thingsStarted\": $STARTED}" > data.json
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
